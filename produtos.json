@@ -1,0 +1,19 @@
+[
+  {
+    "id": "lixeira-16l",
+    "nome": "Lixeira Inteligente 16L com Sensor Automático",
+    "categoria": "Cozinha",
+    "destaque": "Mais vendida",
+    "info": "Sensor, toque ou botão · Recarrega via USB",
+    "imagem": "imgs/lixeira-inteligente-16l",
+    "link": "https://meli.la/2phiz44",
+    "precoAntigo": 249.99,
+    "precos": [
+      {
+        "data": "2026-10-07",
+        "preco": 69.99
+      }
+    ],
+    "conferidoEm": "2026-10-08"
+  }
+]

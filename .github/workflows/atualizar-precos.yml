@@ -1,0 +1,27 @@
+# Roda o buscar-precos.js todo dia e salva o produtos.json atualizado no repositório
+name: Atualizar preços
+
+on:
+  schedule:
+    - cron: "0 10 * * *"   # todo dia às 07:00 de Brasília (10:00 UTC)
+  workflow_dispatch:        # botão "Run workflow" para rodar na hora, pela aba Actions
+
+permissions:
+  contents: write
+
+jobs:
+  precos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node buscar-precos.js
+      - name: Salvar mudanças
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add produtos.json
+          git diff --cached --quiet || git commit -m "Preços atualizados $(TZ=America/Sao_Paulo date +%F)"
+          git push

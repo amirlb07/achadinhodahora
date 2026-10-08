@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Achadinho da Hora</title>
+  <meta name="description" content="Achados para casa com preço bom no Mercado Livre.">
+  <meta name="theme-color" content="#7A2BD6">
+  <link rel="icon" href="imgs/logo.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="imgs/logo.jpg">
+
+  <!-- Prévia quando o link é colado no Instagram, WhatsApp, X... -->
+  <meta property="og:title" content="Achadinho da Hora">
+  <meta property="og:description" content="Achados para casa com preço bom no Mercado Livre.">
+  <meta property="og:image" content="https://achadinhodahora.pages.dev/imgs/logo.jpg">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar raised"><img src="imgs/logo.webp" alt="Logo Achadinho da Hora" width="96" height="96" fetchpriority="high"></div>
+      <h1>Achadinho da Hora</h1>
+      <div class="handle">@achadinhodahora.ofc</div>
+      <p class="bio">Achados para casa que facilitam a rotina, com preço bom no Mercado Livre.</p>
+    </header>
+
+    <label class="search inset" for="q">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Buscar produto" autocomplete="off">
+    </label>
+
+    <div class="chips" id="chips"></div>
+    <main class="list" id="list">
+      <p class="status">Carregando produtos…</p>
+    </main>
+
+    <footer>
+      <span class="cta">Viu no Instagram? Comente <b>QUERO</b> no post e receba o link no direct.</span>
+      <span>Links de afiliado: posso receber comissão pelas compras, sem custo extra pra você.</span>
+      <span>Preços conferidos automaticamente todo dia e podem mudar no site.</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
