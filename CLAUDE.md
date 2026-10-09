@@ -14,7 +14,7 @@ Anotações compartilhadas entre o Claude do app (Cowork) e o Claude Code do VS 
   fontes Fredoka (títulos) e Nunito (texto).
 
 ## Regras
-- Sem frameworks e sem build: HTML + CSS + JS puro. Tem que funcionar como site estático.
+- Site: HTML + CSS + JS puro, como site estático. Não é regra rígida: Amir disse (2026-10-08) que pode usar outras ferramentas quando forem a melhor solução.
 - Para testar localmente use o **Live Server** (abrir o index.html com dois cliques quebra o `fetch`).
 - Imagens ficam em `imgs/`, já no tamanho de exibição, em `.webp`.
 - Rodapé precisa manter o aviso de link de afiliado.
@@ -29,7 +29,7 @@ Anotações compartilhadas entre o Claude do app (Cowork) e o Claude Code do VS 
 | `atualizar-preco.js` | Manual: `node atualizar-preco.js <id> <preço> [AAAA-MM-DD]` |
 | `buscar-precos.js` | Automático: abre o link de afiliado, lê o preço do produto em destaque e atualiza o JSON |
 | `.github/workflows/atualizar-precos.yml` | GitHub Actions roda o `buscar-precos.js` todo dia 07:00 (Brasília) e faz commit |
-| `n8n/instagram-quero-bot.json` | Bot do n8n: comentário com "QUERO" → Direct com o link de afiliado. Lê o `produtos.json` publicado no site. Guia em `n8n/LEIAME.md` |
+| `functions/instagram-webhook.js` | Bot "QUERO" (Cloudflare Pages Function, rota `/instagram-webhook`): comentário com QUERO → Direct com o link de afiliado e o preço de hoje. Ver seção "Bot QUERO" |
 
 ## Formato de um produto (`produtos.json`)
 ```json
@@ -61,7 +61,16 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 - 2026-10-07: preço por dia (`precos[]`), aviso Baixou/Subiu, link `#id`, chamada "comente QUERO", meta tags de prévia (og).
 - 2026-10-08 (Claude Code): `buscar-precos.js` + GitHub Actions diário; campo `conferidoEm`; rodapé diz "conferidos automaticamente todo dia".
 - 2026-10-08: publicado no GitHub (amirlb07/achadinhodahora) + Cloudflare Pages (achadinhodahora.pages.dev).
-- 2026-10-08: bot "QUERO" no n8n (`n8n/`). Usa a Private Replies API oficial do Instagram e acha o produto pelo campo `reels` (ou `#id` na legenda) no `produtos.json` do site. Reels da lixeira = `DeOjpuvqOMz`.
+- 2026-10-08: bot "QUERO" criado primeiro no n8n e trocado no mesmo dia por uma Pages Function (`functions/instagram-webhook.js`): o n8n Cloud é pago após 14 dias e self-host exigiria servidor 24h. Reels da lixeira = `DeOjpuvqOMz`.
+
+## Bot QUERO (Direct automático)
+- Roda no próprio Cloudflare Pages (grátis, sem servidor). A Meta chama `https://achadinhodahora.pages.dev/instagram-webhook`.
+- Usa a Private Replies API oficial do Instagram: 1 Direct por comentário, em até 7 dias. Depois responde no comentário "Te mandei no direct!".
+- Acha o produto pelo campo `reels` (código da URL do Reels) ou por `#id-do-produto` na legenda; sem achar, manda o link do site.
+- Segredos só no painel da Cloudflare (Pages → Settings → Variables and Secrets), nunca no repositório público:
+  `IG_VERIFY_TOKEN`, `IG_ACCESS_TOKEN` (expira em 60 dias), `IG_APP_SECRET` (sem ele todo POST é recusado).
+- Logs: painel do Pages → Deployments → Functions → Real-time logs (linhas com ✔ / ✖).
+- Testar local: `npx wrangler pages dev . --binding IG_VERIFY_TOKEN=x IG_APP_SECRET=y IG_ACCESS_TOKEN=z`.
 
 ## Publicação
 - Repositório: https://github.com/amirlb07/achadinhodahora (público, branch `main`).
@@ -72,3 +81,4 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 ## Pendências / ideias
 - Confirmar se o Mercado Livre aceita a busca de preço vinda dos servidores do GitHub (pode bloquear). Se o Action falhar todo dia, usar o `atualizar-preco.js` manual.
 - `imgs/logo.jpg` é usado só no `og:image`.
+- Bot QUERO: criar o app na Meta, cadastrar as 3 variáveis no Pages, assinar o campo `comments` no webhook e pedir App Review (Advanced Access) para funcionar com qualquer seguidor. Renovar o `IG_ACCESS_TOKEN` a cada 60 dias.
