@@ -29,6 +29,7 @@ Anotações compartilhadas entre o Claude do app (Cowork) e o Claude Code do VS 
 | `atualizar-preco.js` | Manual: `node atualizar-preco.js <id> <preço> [AAAA-MM-DD]` |
 | `buscar-precos.js` | Automático: abre o link de afiliado, lê o preço do produto em destaque e atualiza o JSON |
 | `.github/workflows/atualizar-precos.yml` | GitHub Actions roda o `buscar-precos.js` todo dia 07:00 (Brasília) e faz commit |
+| `n8n/instagram-quero-bot.json` | Bot do n8n: comentário com "QUERO" → Direct com o link de afiliado. Lê o `produtos.json` publicado no site. Guia em `n8n/LEIAME.md` |
 
 ## Formato de um produto (`produtos.json`)
 ```json
@@ -40,6 +41,7 @@ Anotações compartilhadas entre o Claude do app (Cowork) e o Claude Code do VS 
   "info": "Sensor, toque ou botão · ...",    // linha cinza (opcional)
   "imagem": "imgs/lixeira-inteligente-16l",  // SEM extensão: o site usa -208.webp e -312.webp
   "link": "https://meli.la/...",             // link de afiliado
+  "reels": ["DeOjpuvqOMz"],                  // códigos dos Reels do produto (bot QUERO) (opcional)
   "precoAntigo": 249.99,                     // preço riscado, usado no % OFF
   "precos": [ { "data": "2026-10-07", "preco": 69.99 } ],  // histórico, só quando MUDA
   "conferidoEm": "2026-10-08"                // última checagem do robô (mesmo sem mudança)
@@ -59,6 +61,7 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 - 2026-10-07: preço por dia (`precos[]`), aviso Baixou/Subiu, link `#id`, chamada "comente QUERO", meta tags de prévia (og).
 - 2026-10-08 (Claude Code): `buscar-precos.js` + GitHub Actions diário; campo `conferidoEm`; rodapé diz "conferidos automaticamente todo dia".
 - 2026-10-08: publicado no GitHub (amirlb07/achadinhodahora) + Cloudflare Pages (achadinhodahora.pages.dev).
+- 2026-10-08: bot "QUERO" no n8n (`n8n/`). Usa a Private Replies API oficial do Instagram e acha o produto pelo campo `reels` (ou `#id` na legenda) no `produtos.json` do site. Reels da lixeira = `DeOjpuvqOMz`.
 
 ## Publicação
 - Repositório: https://github.com/amirlb07/achadinhodahora (público, branch `main`).
