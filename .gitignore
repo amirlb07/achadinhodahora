@@ -1,2 +1,4 @@
 .wrangler/
 .video-tools/
+video/node_modules/
+video/saida/

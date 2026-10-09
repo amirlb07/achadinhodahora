@@ -1,0 +1,41 @@
+# Publica o Reels da fila (pasta fila/) às 19:00 de Brasília, em terça, quarta, quinta e sábado.
+# Começa 18:30 porque o GitHub às vezes atrasa o início; o script prepara tudo e espera dar 19:00 para publicar.
+name: Postar Reels
+
+on:
+  schedule:
+    - cron: "30 21 * * 2,3,4,6"   # 21:30 UTC = 18:30 de Brasília
+  workflow_dispatch:               # botão "Run workflow" na aba Actions
+    inputs:
+      modo:
+        description: "teste = prepara e envia ao Instagram, mas NÃO publica"
+        type: choice
+        options: [normal, teste]
+        default: normal
+
+permissions:
+  contents: write
+
+concurrency:
+  group: postar-reels
+  cancel-in-progress: false
+
+jobs:
+  postar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Instalar ferramentas de vídeo
+        working-directory: video
+        run: npm ci --no-audit --no-fund
+      - name: Publicar
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          node video/publicar.js ${{ inputs.modo == 'teste' && '--teste' || '' }}

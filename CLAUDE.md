@@ -30,6 +30,9 @@ Anotações compartilhadas entre o Claude do app (Cowork) e o Claude Code do VS 
 | `buscar-precos.js` | Automático: abre o link de afiliado, lê o preço do produto em destaque e atualiza o JSON |
 | `.github/workflows/atualizar-precos.yml` | GitHub Actions roda o `buscar-precos.js` todo dia 07:00 (Brasília) e faz commit |
 | `functions/instagram-webhook.js` | Bot "QUERO" (Cloudflare Pages Function, rota `/instagram-webhook`): comentário com QUERO → Direct com o link de afiliado e o preço de hoje. Ver seção "Bot QUERO" |
+| `video/` | Motor dos Reels: `montagem.js` (faz o vídeo a partir de um item da fila), `narrar.js` (voz), `publicar.js` (publica no Instagram) |
+| `fila/` | Reels aprovados esperando o dia de postar (formato em `fila/LEIAME.md`); publicados vão para `fila/postados/` |
+| `.github/workflows/postar-reels.yml` | Ter/qua/qui/sáb 18:30: faz o vídeo do item do dia, publica 19:00, cadastra o Reels no bot e o produto no site |
 
 ## Formato de um produto (`produtos.json`)
 ```json
@@ -77,13 +80,23 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 - Logs: painel do Pages → Deployments → Functions → Real-time logs (linhas com ✔ / ✖).
 - Testar local: `npx wrangler pages dev . --binding IG_VERIFY_TOKEN=x IG_APP_SECRET=y IG_ACCESS_TOKEN=z`.
 
-## Vídeos (Reels)
-- Ferramentas locais em `.video-tools/` (fora do git): `tts.js` (voz neural pt-BR Francisca via msedge-tts) e
-  `build.js` (cenas 1080x1920 com sharp + fonte Fredoka, música original gerada em código, mix e render com ffmpeg-static).
-- Estilo: degradê laranja→rosa→roxo, títulos brancos, cartões brancos com texto roxo, `@achadinhodahora.ofc` no topo,
-  `#publi · link de afiliado` embaixo. Final sempre com "Comente QUERO e receba no direct".
-- Amir prefere vídeos curtos (~10–13s) com música baixinha e relaxante. Não colocar preço no vídeo (muda todo dia; o Direct manda o preço atual).
-- Vídeos prontos ficam em `Claude outputs/` (fora do git).
+## Vídeos (Reels) e postagem automática
+- Agenda: **terça, quarta, quinta e sábado às 19h** (decisão do Amir, 2026-10-09). Modelo com **aprovação semanal**:
+  1. Pesquisa (Claude, tarefa agendada semanal): 4 produtos de casa em alta no Mercado Livre, com motivo, preço e rascunho de roteiro.
+  2. Amir aprova e gera os links `meli.la` no painel de Afiliados (nunca automatizar a geração de link nem postar sem aprovação).
+  3. Claude cria `fila/<AAAA-MM-DD>-<id>/` (fotos, item.json, narração com `node video/narrar.js`), renderiza a prévia
+     (`node video/montagem.js fila/<pasta>`), mostra ao Amir e faz commit/push.
+  4. O Action `postar-reels.yml` publica sozinho no horário.
+- Publicação: a API (Instagram Login) não aceita upload direto; o vídeo vai para o ramo `midia` (um commit só, force-push)
+  e o Cloudflare serve em `https://midia.achadinhodahora.pages.dev/reels/<nome>.mp4`. O Instagram baixa de lá.
+- Segredo no GitHub (Settings → Secrets → Actions): `IG_ACCESS_TOKEN` (o mesmo token da Cloudflare; permissão
+  `instagram_business_content_publish` adicionada ao app em 2026-10-09).
+- Estilo: degradê laranja→rosa→roxo, títulos brancos (Fredoka), cartões brancos com texto roxo, `@achadinhodahora.ofc` no topo,
+  `#publi · link de afiliado` embaixo; final sempre "Comente QUERO e receba no direct". Voz pt-BR Francisca (msedge-tts).
+  Música original gerada em código (sem direitos autorais), bem baixa.
+- Amir prefere vídeos curtos (~10–13s). Não colocar preço no vídeo (o Direct manda o preço atual). Legenda sempre com `#publi`.
+- Windows: a pasta do projeto tem acento ("Programação"); o `montagem.js` copia a fonte para a pasta temporária por isso.
+- `.video-tools/` é a versão antiga (local, fora do git) usada nos 2 primeiros vídeos.
 
 ## Publicação
 - Repositório: https://github.com/amirlb07/achadinhodahora (público, branch `main`).
