@@ -70,7 +70,9 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 - Segredos só no painel da Cloudflare (Pages → Settings → Variables and Secrets), nunca no repositório público:
   `IG_ACCESS_TOKEN` (expira em 60 dias) e `IG_APP_SECRET` (sem ele todo POST é recusado).
   O verify token do webhook é `achadinhodahora-webhook`, fixo no código (não é segredo).
-- App na Meta: "Achadinho Bot", ID `4230480697243880` (developers.facebook.com/apps/4230480697243880).
+- App na Meta: "Achadinho Bot", ID `4230480697243880` (developers.facebook.com/apps/4230480697243880), publicado.
+  App do Instagram: ID `1875476003438335` (a chave secreta DELE é o `IG_APP_SECRET`). Conta @achadinhodahora.ofc = `17841411680294670`, testadora do app, assinatura do webhook ativada.
+- Para renovar o token: Meta → Casos de uso → Configuração da API com login do Instagram → Gerar token; colar no `IG_ACCESS_TOKEN` da Cloudflare e publicar de novo (segredo novo só vale após nova publicação).
 - Logs: painel do Pages → Deployments → Functions → Real-time logs (linhas com ✔ / ✖).
 - Testar local: `npx wrangler pages dev . --binding IG_VERIFY_TOKEN=x IG_APP_SECRET=y IG_ACCESS_TOKEN=z`.
 
@@ -83,4 +85,4 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 ## Pendências / ideias
 - Confirmar se o Mercado Livre aceita a busca de preço vinda dos servidores do GitHub (pode bloquear). Se o Action falhar todo dia, usar o `atualizar-preco.js` manual.
 - `imgs/logo.jpg` é usado só no `og:image`.
-- Bot QUERO: cadastrar as 2 variáveis no Pages, assinar o campo `comments` no webhook e pedir App Review (Advanced Access) para funcionar com qualquer seguidor. Renovar o `IG_ACCESS_TOKEN` a cada 60 dias.
+- Bot QUERO: configurado em 2026-10-09 (app, webhook, segredos). Falta o teste real com outra conta; se só funcionar com contas testadoras, pedir App Review (Advanced Access). Renovar o `IG_ACCESS_TOKEN` a cada 60 dias (vence ~2026-12-08).
