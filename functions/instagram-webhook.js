@@ -10,17 +10,20 @@
 //
 // Segredos ficam no painel da Cloudflare (Pages → achadinhodahora → Settings → Variables and Secrets),
 // NUNCA no código, porque o repositório é público:
-//   IG_VERIFY_TOKEN  – senha que você inventa e repete no painel da Meta
 //   IG_ACCESS_TOKEN  – token do Instagram (API with Instagram Login)
 //   IG_APP_SECRET    – "App secret" do app na Meta (confere se o POST veio mesmo da Meta)
 
 const GRAPH = "https://graph.instagram.com/v23.0";
 const SITE = "https://achadinhodahora.pages.dev";
 
+// Frase repetida no painel da Meta ao cadastrar o webhook. NÃO é segredo: quem a descobrir
+// não consegue mandar comentários falsos, porque todo POST é conferido pela assinatura do IG_APP_SECRET.
+const VERIFY_TOKEN = "achadinhodahora-webhook";
+
 // ---------- GET: verificação do webhook ----------
 export async function onRequestGet({ request, env }) {
   const q = new URL(request.url).searchParams;
-  const tokenCerto = env.IG_VERIFY_TOKEN && q.get("hub.verify_token") === env.IG_VERIFY_TOKEN;
+  const tokenCerto = q.get("hub.verify_token") === (env.IG_VERIFY_TOKEN || VERIFY_TOKEN);
   if (q.get("hub.mode") === "subscribe" && tokenCerto) {
     return new Response(q.get("hub.challenge")); // a Meta espera receber o "challenge" de volta
   }

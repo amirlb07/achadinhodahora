@@ -68,7 +68,9 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 - Usa a Private Replies API oficial do Instagram: 1 Direct por comentário, em até 7 dias. Depois responde no comentário "Te mandei no direct!".
 - Acha o produto pelo campo `reels` (código da URL do Reels) ou por `#id-do-produto` na legenda; sem achar, manda o link do site.
 - Segredos só no painel da Cloudflare (Pages → Settings → Variables and Secrets), nunca no repositório público:
-  `IG_VERIFY_TOKEN`, `IG_ACCESS_TOKEN` (expira em 60 dias), `IG_APP_SECRET` (sem ele todo POST é recusado).
+  `IG_ACCESS_TOKEN` (expira em 60 dias) e `IG_APP_SECRET` (sem ele todo POST é recusado).
+  O verify token do webhook é `achadinhodahora-webhook`, fixo no código (não é segredo).
+- App na Meta: "Achadinho Bot", ID `4230480697243880` (developers.facebook.com/apps/4230480697243880).
 - Logs: painel do Pages → Deployments → Functions → Real-time logs (linhas com ✔ / ✖).
 - Testar local: `npx wrangler pages dev . --binding IG_VERIFY_TOKEN=x IG_APP_SECRET=y IG_ACCESS_TOKEN=z`.
 
@@ -81,4 +83,4 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 ## Pendências / ideias
 - Confirmar se o Mercado Livre aceita a busca de preço vinda dos servidores do GitHub (pode bloquear). Se o Action falhar todo dia, usar o `atualizar-preco.js` manual.
 - `imgs/logo.jpg` é usado só no `og:image`.
-- Bot QUERO: criar o app na Meta, cadastrar as 3 variáveis no Pages, assinar o campo `comments` no webhook e pedir App Review (Advanced Access) para funcionar com qualquer seguidor. Renovar o `IG_ACCESS_TOKEN` a cada 60 dias.
+- Bot QUERO: cadastrar as 2 variáveis no Pages, assinar o campo `comments` no webhook e pedir App Review (Advanced Access) para funcionar com qualquer seguidor. Renovar o `IG_ACCESS_TOKEN` a cada 60 dias.
