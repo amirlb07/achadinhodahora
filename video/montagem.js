@@ -189,17 +189,17 @@ async function renderizar(pastaItem, saida) {
   const add = (arq, extra = []) => { ent.push(...extra, "-i", arq); return nIn++; };
   for (let c = 1; c <= nCenas; c++) {
     const d = D[c - 1], fr = Math.round(d * FPS);
-    const ib = add(T(`base${c}.png`), ["-loop", "1", "-t", d.toFixed(3)]);
+    const ib = add(T(`base${c}.png`), ["-loop", "1", "-framerate", String(FPS), "-t", d.toFixed(3)]);
     fl.push(`[${ib}:v]scale=${W * 2}:${H * 2},zoompan=z='1+0.045*on/${fr}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=${W}x${H}:fps=${FPS},trim=duration=${d.toFixed(3)},setpts=PTS-STARTPTS[z${c}]`);
     let atual = `z${c}`;
     for (const [k, cam] of camadas[c - 1].entries()) {
       const st = cam.em.toFixed(2), id = `${c}_${k}`;
-      const ic = add(T(cam.arq), ["-loop", "1", "-t", d.toFixed(3)]);
+      const ic = add(T(cam.arq), ["-loop", "1", "-framerate", String(FPS), "-t", d.toFixed(3)]);
       fl.push(`[${ic}:v]format=rgba,fade=in:st=${st}:d=0.35:alpha=1[l${id}]`);
       fl.push(`[${atual}][l${id}]overlay=x=0:y='40*max(0\\,1-(t-${st})/0.35)':eval=frame[o${id}]`);
       atual = `o${id}`;
     }
-    fl.push(`[${atual}]format=yuv420p,setsar=1[c${c}]`);
+    fl.push(`[${atual}]fps=${FPS},format=yuv420p,setsar=1,settb=AVTB[c${c}]`);
   }
   let prev = "c1";
   for (let c = 2; c <= nCenas; c++) {
@@ -207,7 +207,7 @@ async function renderizar(pastaItem, saida) {
     fl.push(`[${prev}][c${c}]xfade=transition=${tr}:duration=${XF}:offset=${inicio[c - 1].toFixed(3)}[x${c}]`);
     prev = `x${c}`;
   }
-  const imo = add(T("moldura.png"), ["-loop", "1", "-t", TOTAL.toFixed(3)]);
+  const imo = add(T("moldura.png"), ["-loop", "1", "-framerate", String(FPS), "-t", TOTAL.toFixed(3)]);
   fl.push(`[${prev}][${imo}:v]overlay=0:0,format=yuv420p[vout]`);
 
   const falas = [];
