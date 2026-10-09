@@ -78,8 +78,9 @@ async function hospedar(arquivoVideo, nome) {
   log("esperando o Cloudflare publicar", url);
   for (let i = 0; i < 40; i++) { // até ~10 min
     await esperar(15000);
-    const r = await fetch(url + "?v=" + Date.now(), { method: "HEAD" }).catch(() => null);
-    if (r?.ok && Number(r.headers.get("content-length")) === tamanho) return url;
+    // baixa o vídeo inteiro e compara o tamanho (o Cloudflare não informa o tamanho em pedidos HEAD)
+    const r = await fetch(url + "?v=" + Date.now()).catch(() => null);
+    if (r?.ok && (await r.arrayBuffer()).byteLength === tamanho) return url;
   }
   throw new Error("o vídeo não ficou disponível no link público a tempo: " + url);
 }
