@@ -1,0 +1,42 @@
+{
+  "postarEm": "2026-10-10T19:00:00-03:00",
+  "produto": {
+    "id": "cesto-roupa-bambu",
+    "nome": "Cesto de Roupa de Bambu 72L com Tampa",
+    "categoria": "Banheiro",
+    "destaque": "Dobrável",
+    "info": "72 litros · Tampa · Forro de linho",
+    "link": "COLE_AQUI_O_LINK_MELI_LA",
+    "precoAntigo": 77.76,
+    "preco": 57.76
+  },
+  "fotoSite": {
+    "foto": "1.webp",
+    "centroX": 0.5
+  },
+  "legenda": "Chega de roupa suja jogada pelo banheiro 🧺✨\nCesto de bambu de 72 litros, com tampa, forro de linho e dobrável quando não estiver usando.\n\n👉 Comenta QUERO que eu te mando o link no direct!\n\n#publi #achadinhos #achadinhosmercadolivre #banheiro #lavanderia #casaorganizada",
+  "cenas": [
+    {
+      "foto": "1.webp",
+      "titulo": "Chega de roupa\njogada no chão",
+      "fala": "Chega de roupa suja jogada pelo banheiro!"
+    },
+    {
+      "foto": "2.webp",
+      "titulo": "Cabe 72 litros\nde roupa",
+      "fala": "Esse cesto de bambu cabe setenta e dois litros de roupa,",
+      "etiqueta": "Bambu + forro de linho",
+      "etiquetaEm": 0.45
+    },
+    {
+      "foto": "3.webp",
+      "titulo": "Tem tampa\ne é dobrável",
+      "fala": "tem tampa, e ainda dobra quando você não está usando."
+    }
+  ],
+  "final": {
+    "fala": "Comenta QUERO, que eu te mando o link no direct!",
+    "nomeCurto": "Cesto de Roupa Bambu 72L",
+    "miniatura": "1.webp"
+  }
+}

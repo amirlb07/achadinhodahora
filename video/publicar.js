@@ -106,6 +106,8 @@ async function main() {
   log(`item da vez: ${item.nome} (postar em ${item.postarEm})${TESTE ? " — MODO TESTE" : ""}`);
   if (!TOKEN) throw new Error("falta o segredo IG_ACCESS_TOKEN");
   if (!/#publi\b/i.test(item.legenda)) throw new Error("a legenda precisa ter #publi (é publicidade de afiliado)");
+  // trava: sem link de afiliado de verdade, não publica (o bot QUERO mandaria um link quebrado)
+  if (!/^https:\/\/meli\.la\/\w+$/.test(item.produto.link || "")) throw new Error(`o item ${item.nome} está sem link meli.la válido: "${item.produto.link}"`);
 
   const eu = await ig("/me?fields=user_id,username");
   log(`conta: @${eu.username}`);
