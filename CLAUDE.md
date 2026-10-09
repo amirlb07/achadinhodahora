@@ -62,6 +62,7 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 - 2026-10-08 (Claude Code): `buscar-precos.js` + GitHub Actions diário; campo `conferidoEm`; rodapé diz "conferidos automaticamente todo dia".
 - 2026-10-08: publicado no GitHub (amirlb07/achadinhodahora) + Cloudflare Pages (achadinhodahora.pages.dev).
 - 2026-10-08: bot "QUERO" criado primeiro no n8n e trocado no mesmo dia por uma Pages Function (`functions/instagram-webhook.js`): o n8n Cloud é pago após 14 dias e self-host exigiria servidor 24h. Reels da lixeira = `DeOjpuvqOMz`.
+- 2026-10-09: bot QUERO testado com outra conta e funcionando. Novo produto `robo-aspirador-s40` + Reels de 12,7s com música.
 
 ## Bot QUERO (Direct automático)
 - Roda no próprio Cloudflare Pages (grátis, sem servidor). A Meta chama `https://achadinhodahora.pages.dev/instagram-webhook`.
@@ -75,6 +76,14 @@ Gerar duas versões em formato 4:5 (largura:altura), cortadas no centro:
 - Para renovar o token: Meta → Casos de uso → Configuração da API com login do Instagram → Gerar token; colar no `IG_ACCESS_TOKEN` da Cloudflare e publicar de novo (segredo novo só vale após nova publicação).
 - Logs: painel do Pages → Deployments → Functions → Real-time logs (linhas com ✔ / ✖).
 - Testar local: `npx wrangler pages dev . --binding IG_VERIFY_TOKEN=x IG_APP_SECRET=y IG_ACCESS_TOKEN=z`.
+
+## Vídeos (Reels)
+- Ferramentas locais em `.video-tools/` (fora do git): `tts.js` (voz neural pt-BR Francisca via msedge-tts) e
+  `build.js` (cenas 1080x1920 com sharp + fonte Fredoka, música original gerada em código, mix e render com ffmpeg-static).
+- Estilo: degradê laranja→rosa→roxo, títulos brancos, cartões brancos com texto roxo, `@achadinhodahora.ofc` no topo,
+  `#publi · link de afiliado` embaixo. Final sempre com "Comente QUERO e receba no direct".
+- Amir prefere vídeos curtos (~10–13s) com música baixinha e relaxante. Não colocar preço no vídeo (muda todo dia; o Direct manda o preço atual).
+- Vídeos prontos ficam em `Claude outputs/` (fora do git).
 
 ## Publicação
 - Repositório: https://github.com/amirlb07/achadinhodahora (público, branch `main`).
