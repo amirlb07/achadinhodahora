@@ -70,6 +70,7 @@ h1{font-family:var(--f-display);font-weight:600;font-size:1.75rem;margin:0;lette
 .empty{text-align:center;color:var(--muted);padding:24px;border-radius:24px}
 
 footer{text-align:center;color:var(--muted);font-size:.8rem;display:flex;flex-direction:column;gap:4px}
+footer a{color:inherit}
 @media (max-width:380px){.card{grid-template-columns:92px 1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 .status{text-align:center;color:var(--muted)}

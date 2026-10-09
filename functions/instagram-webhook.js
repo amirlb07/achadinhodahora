@@ -13,7 +13,7 @@
 //   IG_ACCESS_TOKEN  – token do Instagram (API with Instagram Login)
 //   IG_APP_SECRET    – "App secret" do app na Meta (confere se o POST veio mesmo da Meta)
 
-const GRAPH = "https://graph.instagram.com/v23.0";
+const GRAPH = "https://graph.instagram.com/v26.0";
 const SITE = "https://achadinhodahora.pages.dev";
 
 // Frase repetida no painel da Meta ao cadastrar o webhook. NÃO é segredo: quem a descobrir
