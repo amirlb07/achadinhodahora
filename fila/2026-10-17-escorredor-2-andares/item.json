@@ -1,0 +1,47 @@
+{
+  "postarEm": "2026-10-17T19:00:00-03:00",
+  "produto": {
+    "id": "escorredor-2-andares",
+    "nome": "Escorredor de Louças 2 Andares Zelvi Preto",
+    "categoria": "Cozinha",
+    "destaque": "2 andares",
+    "info": "11 pratos · Drenagem · Aço carbono antiferrugem",
+    "link": "https://meli.la/2dGTuTS",
+    "precoAntigo": 229.9,
+    "preco": 108.88
+  },
+  "fotoSite": {
+    "foto": "3.webp",
+    "centroX": 0.5
+  },
+  "legenda": "Pia organizada de verdade ✨\nEscorredor de 2 andares com bandeja de drenagem, porta-talheres e porta-copos. Cabe 11 pratos em cima.\n\n👉 Comenta QUERO que eu te mando o link no direct!\n\n#publi #achadinhos #achadinhosmercadolivre #cozinhaorganizada #pia #casaorganizada",
+  "cenas": [
+    {
+      "foto": "1.webp",
+      "titulo": "Pia organizada\nde verdade",
+      "fala": "Esse escorredor de dois andares organiza a pia!"
+    },
+    {
+      "foto": "2.webp",
+      "posicao": "bottom",
+      "formato": "deitada",
+      "titulo": "Lugar pra\ntudo",
+      "fala": "Tem lugar pra pratos, copos, talheres e até tábua,",
+      "etiqueta": "Cabe 11 pratos em cima",
+      "etiquetaEm": 0.4
+    },
+    {
+      "foto": "3.webp",
+      "titulo": "A água escorre\ndireto pra pia",
+      "tamanhoTitulo": 100,
+      "fala": "e a bandeja leva a água direto pra pia.",
+      "etiqueta": "Aço carbono antiferrugem",
+      "etiquetaEm": 0.4
+    }
+  ],
+  "final": {
+    "fala": "Comenta QUERO, que eu te mando o link no direct!",
+    "nomeCurto": "Escorredor de Louças 2 Andares",
+    "miniatura": "3.webp"
+  }
+}

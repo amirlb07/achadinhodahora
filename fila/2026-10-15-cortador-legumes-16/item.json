@@ -1,0 +1,46 @@
+{
+  "postarEm": "2026-10-15T19:00:00-03:00",
+  "produto": {
+    "id": "cortador-legumes-16",
+    "nome": "Cortador e Fatiador de Legumes 16 Peças Inox",
+    "categoria": "Cozinha",
+    "destaque": "16 em 1",
+    "info": "Corta, fatia, rala e pica · Lâminas inox",
+    "link": "https://meli.la/14mhGLZ",
+    "precoAntigo": 59.9,
+    "preco": 39.77
+  },
+  "fotoSite": {
+    "foto": "1.webp",
+    "centroX": 0.55
+  },
+  "legenda": "Picar cebola nunca mais foi sofrimento 🧅🔪\nCortador 16 peças: cubos, fatias, palitos, ralado e tiras, com protetor para a mão e recipiente coletor.\n\n👉 Comenta QUERO que eu te mando o link no direct!\n\n#publi #achadinhos #achadinhosmercadolivre #cozinhapratica #utilidades #casaorganizada",
+  "cenas": [
+    {
+      "foto": "1.webp",
+      "titulo": "Corta, fatia\ne rala tudo",
+      "fala": "Esse cortador corta, fatia e rala legume num instante!",
+      "etiqueta": "16 peças · lâminas inox",
+      "etiquetaEm": 0.5
+    },
+    {
+      "foto": "2.webp",
+      "posicao": "bottom",
+      "formato": "deitada",
+      "titulo": "5 tipos\nde corte",
+      "fala": "São cinco tipos de corte diferentes,"
+    },
+    {
+      "foto": "3.webp",
+      "posicao": "bottom",
+      "formato": "deitada",
+      "titulo": "Mão longe\nda lâmina",
+      "fala": "e o protetor deixa sua mão longe da lâmina."
+    }
+  ],
+  "final": {
+    "fala": "Comenta QUERO, que eu te mando o link no direct!",
+    "nomeCurto": "Cortador de Legumes 16 Peças",
+    "miniatura": "1.webp"
+  }
+}

@@ -45,12 +45,13 @@ async function ig(caminho, corpo) {
 function itemDaVez() {
   if (!fs.existsSync(FILA)) return null;
   const agora = Date.now();
-  const itens = fs.readdirSync(FILA, { withFileTypes: true })
+  const todos = fs.readdirSync(FILA, { withFileTypes: true })
     .filter(d => d.isDirectory() && d.name !== "postados" && fs.existsSync(path.join(FILA, d.name, "item.json")))
     .map(d => ({ nome: d.name, pasta: path.join(FILA, d.name), ...JSON.parse(fs.readFileSync(path.join(FILA, d.name, "item.json"), "utf8")) }))
-    .filter(i => { const t = Date.parse(i.postarEm); return t > agora - 3 * 3600e3 && t < agora + 90 * 60e3; })
     .sort((a, b) => Date.parse(a.postarEm) - Date.parse(b.postarEm));
-  return itens[0] || null;
+  const daVez = todos.find(i => { const t = Date.parse(i.postarEm); return t > agora - 3 * 3600e3 && t < agora + 90 * 60e3; });
+  // no modo teste, se nada estiver marcado para agora, usa o próximo da fila (só para testar, não publica)
+  return daVez || (TESTE ? todos.find(i => Date.parse(i.postarEm) > agora) : null) || null;
 }
 
 // publica o vídeo no ramo "midia" (sempre um commit só, sem histórico, para o repositório não crescer)

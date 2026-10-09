@@ -1,0 +1,43 @@
+{
+  "postarEm": "2026-10-13T19:00:00-03:00",
+  "produto": {
+    "id": "saco-vacuo-magnow",
+    "nome": "Kit 5 Sacos a Vácuo Magnow + Bomba Elétrica",
+    "categoria": "Organização",
+    "destaque": "Bomba elétrica",
+    "info": "5 sacos 50x60 cm · Bomba 220V",
+    "link": "https://meli.la/2sU2suW",
+    "precoAntigo": 129.99,
+    "preco": 42.27
+  },
+  "fotoSite": {
+    "foto": "3.webp",
+    "centroX": 0.42
+  },
+  "legenda": "Guarda-roupa sem espaço? 😩\nCom os sacos a vácuo, roupas e edredons ficam bem menores. A bomba elétrica tira o ar sozinha.\n\n👉 Comenta QUERO que eu te mando o link no direct!\n\n#publi #achadinhos #achadinhosmercadolivre #organizacao #guardaroupa #casaorganizada",
+  "cenas": [
+    {
+      "foto": "1.webp",
+      "titulo": "Guarda-roupa\nsem espaço?",
+      "fala": "Seu guarda-roupa vive sem espaço?"
+    },
+    {
+      "foto": "2.webp",
+      "titulo": "Roupas e edredons\nbem menores",
+      "tamanhoTitulo": 96,
+      "fala": "Com esse saco a vácuo, roupas e edredons ficam bem menores,"
+    },
+    {
+      "foto": "3.webp",
+      "titulo": "A bomba tira\no ar sozinha",
+      "fala": "e a bomba elétrica tira o ar sozinha.",
+      "etiqueta": "5 sacos 50x60 + bomba 220V",
+      "etiquetaEm": 0.35
+    }
+  ],
+  "final": {
+    "fala": "Comenta QUERO, que eu te mando o link no direct!",
+    "nomeCurto": "Kit 5 Sacos a Vácuo + Bomba",
+    "miniatura": "3.webp"
+  }
+}

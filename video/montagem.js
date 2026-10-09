@@ -75,8 +75,12 @@ async function salvarCamada(arq, pecas, fundoBuf = null) {
   await sharp({ create: { width: W, height: H, channels: 4, background: fundoBuf ? "#000" : "#0000" } }).composite(comp).png().toFile(arq);
 }
 
-// tamanho do cartão conforme o formato da foto
-async function tamanhoCartao(arquivo) {
+// tamanho do cartão conforme o formato da foto (ou forçado pelo "formato" da cena, ex.: "deitada" para cortar
+// um texto que vem no topo da foto do anúncio, junto com posicao "bottom")
+async function tamanhoCartao(arquivo, formato) {
+  if (formato === "deitada") return [920, 700];
+  if (formato === "quadrada") return [840, 840];
+  if (formato === "empe") return [740, 920];
   const m = await sharp(arquivo).metadata();
   const ar = m.width / m.height;
   if (ar > 1.15) return [920, 700];   // deitada
@@ -149,7 +153,7 @@ async function renderizar(pastaItem, saida) {
   const camadas = [];
   for (const [i, c] of cenas.entries()) {
     const n = i + 1;
-    const [w, h] = await tamanhoCartao(P(c.foto));
+    const [w, h] = await tamanhoCartao(P(c.foto), c.formato);
     const yCartao = 560;
     await salvarCamada(T(`base${n}.png`), [{ buf: await cartao(P(c.foto), w, h, c.posicao || "centre"), y: yCartao }], bg);
     const lista = [];

@@ -1,0 +1,45 @@
+{
+  "postarEm": "2026-10-14T19:00:00-03:00",
+  "produto": {
+    "id": "potes-vidro-rishon",
+    "nome": "Kit 10 Potes de Vidro Herméticos 640ml Rishon",
+    "categoria": "Cozinha",
+    "destaque": "Mais vendido",
+    "info": "Vidro borossilicato · Forno, micro-ondas e freezer",
+    "link": "https://meli.la/1xjsUha",
+    "precoAntigo": 197.77,
+    "preco": 97.62
+  },
+  "fotoSite": {
+    "foto": "1.webp",
+    "centroX": 0.5
+  },
+  "legenda": "O mais vendido de cozinha do Mercado Livre 🥗\n10 potes de vidro com tampa hermética: vão do freezer ao forno e deixam a geladeira organizada.\n\n👉 Comenta QUERO que eu te mando o link no direct!\n\n#publi #achadinhos #achadinhosmercadolivre #cozinhaorganizada #marmita #casaorganizada",
+  "cenas": [
+    {
+      "foto": "1.webp",
+      "titulo": "10 potes de vidro\nherméticos",
+      "fala": "Olha esse kit com dez potes de vidro hermético!",
+      "etiqueta": "O mais vendido de cozinha",
+      "etiquetaEm": 0.5
+    },
+    {
+      "foto": "2.webp",
+      "posicao": "bottom",
+      "formato": "deitada",
+      "titulo": "Geladeira e marmita\norganizadas",
+      "tamanhoTitulo": 96,
+      "fala": "Deixa a geladeira e as marmitas organizadas,"
+    },
+    {
+      "foto": "3.webp",
+      "titulo": "Do freezer\nao forno",
+      "fala": "e vai do freezer direto pro forno e pra air fryer."
+    }
+  ],
+  "final": {
+    "fala": "Comenta QUERO, que eu te mando o link no direct!",
+    "nomeCurto": "Kit 10 Potes de Vidro 640ml",
+    "miniatura": "1.webp"
+  }
+}
