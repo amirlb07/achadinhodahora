@@ -25,7 +25,7 @@
         "preco": 69.99
       }
     ],
-    "conferidoEm": "2026-10-10"
+    "conferidoEm": "2026-10-11"
   },
   {
     "id": "robo-aspirador-s40",
@@ -43,9 +43,13 @@
       {
         "data": "2026-10-09",
         "preco": 1582
+      },
+      {
+        "data": "2026-10-11",
+        "preco": 1792
       }
     ],
-    "conferidoEm": "2026-10-09"
+    "conferidoEm": "2026-10-11"
   },
   {
     "id": "cesto-roupa-bambu",
@@ -63,8 +67,12 @@
       {
         "data": "2026-10-10",
         "preco": 57.76
+      },
+      {
+        "data": "2026-10-11",
+        "preco": 77.76
       }
     ],
-    "conferidoEm": "2026-10-10"
+    "conferidoEm": "2026-10-11"
   }
 ]
