@@ -46,5 +46,25 @@
       }
     ],
     "conferidoEm": "2026-10-09"
+  },
+  {
+    "id": "cesto-roupa-bambu",
+    "nome": "Cesto de Roupa de Bambu 72L com Tampa",
+    "categoria": "Banheiro",
+    "destaque": "Dobrável",
+    "info": "72 litros · Tampa · Forro de linho",
+    "imagem": "imgs/cesto-roupa-bambu",
+    "link": "https://meli.la/2yp7AJ7",
+    "reels": [
+      "DeVXLTNDFuu"
+    ],
+    "precoAntigo": 77.76,
+    "precos": [
+      {
+        "data": "2026-10-10",
+        "preco": 57.76
+      }
+    ],
+    "conferidoEm": "2026-10-10"
   }
 ]
