@@ -94,5 +94,25 @@
       }
     ],
     "conferidoEm": "2026-10-13"
+  },
+  {
+    "id": "saco-vacuo-magnow",
+    "nome": "Kit 5 Sacos a Vácuo Magnow + Bomba Elétrica",
+    "categoria": "Organização",
+    "destaque": "Bomba elétrica",
+    "info": "5 sacos 50x60 cm · Bomba 220V",
+    "imagem": "imgs/saco-vacuo-magnow",
+    "link": "https://meli.la/2sU2suW",
+    "reels": [
+      "DedGf9aFaPY"
+    ],
+    "precoAntigo": 129.99,
+    "precos": [
+      {
+        "data": "2026-10-13",
+        "preco": 42.27
+      }
+    ],
+    "conferidoEm": "2026-10-13"
   }
 ]
