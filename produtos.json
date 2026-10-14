@@ -31,9 +31,13 @@
       {
         "data": "2026-10-13",
         "preco": 69.99
+      },
+      {
+        "data": "2026-10-14",
+        "preco": 62.99
       }
     ],
-    "conferidoEm": "2026-10-13"
+    "conferidoEm": "2026-10-14"
   },
   {
     "id": "robo-aspirador-s40",
@@ -63,9 +67,13 @@
       {
         "data": "2026-10-13",
         "preco": 1730
+      },
+      {
+        "data": "2026-10-14",
+        "preco": 1605
       }
     ],
-    "conferidoEm": "2026-10-13"
+    "conferidoEm": "2026-10-14"
   },
   {
     "id": "cesto-roupa-bambu",
@@ -91,9 +99,13 @@
       {
         "data": "2026-10-12",
         "preco": 57.76
+      },
+      {
+        "data": "2026-10-14",
+        "preco": 56.76
       }
     ],
-    "conferidoEm": "2026-10-13"
+    "conferidoEm": "2026-10-14"
   },
   {
     "id": "saco-vacuo-magnow",
@@ -111,8 +123,12 @@
       {
         "data": "2026-10-13",
         "preco": 42.27
+      },
+      {
+        "data": "2026-10-14",
+        "preco": 51.99
       }
     ],
-    "conferidoEm": "2026-10-13"
+    "conferidoEm": "2026-10-14"
   }
 ]
