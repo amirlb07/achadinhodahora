@@ -158,5 +158,25 @@
       }
     ],
     "conferidoEm": "2026-10-15"
+  },
+  {
+    "id": "cortador-legumes-16",
+    "nome": "Cortador e Fatiador de Legumes 16 Peças Inox",
+    "categoria": "Cozinha",
+    "destaque": "16 em 1",
+    "info": "Corta, fatia, rala e pica · Lâminas inox",
+    "imagem": "imgs/cortador-legumes-16",
+    "link": "https://meli.la/14mhGLZ",
+    "reels": [
+      "DeiLACxDcg4"
+    ],
+    "precoAntigo": 59.9,
+    "precos": [
+      {
+        "data": "2026-10-15",
+        "preco": 39.77
+      }
+    ],
+    "conferidoEm": "2026-10-15"
   }
 ]
