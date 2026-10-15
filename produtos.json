@@ -130,5 +130,25 @@
       }
     ],
     "conferidoEm": "2026-10-14"
+  },
+  {
+    "id": "potes-vidro-rishon",
+    "nome": "Kit 10 Potes de Vidro Herméticos 640ml Rishon",
+    "categoria": "Cozinha",
+    "destaque": "Mais vendido",
+    "info": "Vidro borossilicato · Forno, micro-ondas e freezer",
+    "imagem": "imgs/potes-vidro-rishon",
+    "link": "https://meli.la/1xjsUha",
+    "reels": [
+      "DefoI05Dyft"
+    ],
+    "precoAntigo": 197.77,
+    "precos": [
+      {
+        "data": "2026-10-14",
+        "preco": 97.62
+      }
+    ],
+    "conferidoEm": "2026-10-14"
   }
 ]
