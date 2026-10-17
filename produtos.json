@@ -194,5 +194,25 @@
       }
     ],
     "conferidoEm": "2026-10-17"
+  },
+  {
+    "id": "escorredor-2-andares",
+    "nome": "Escorredor de Louças 2 Andares Zelvi Preto",
+    "categoria": "Cozinha",
+    "destaque": "2 andares",
+    "info": "11 pratos · Drenagem · Aço carbono antiferrugem",
+    "imagem": "imgs/escorredor-2-andares",
+    "link": "https://meli.la/2dGTuTS",
+    "reels": [
+      "DenRrOnFPUa"
+    ],
+    "precoAntigo": 229.9,
+    "precos": [
+      {
+        "data": "2026-10-17",
+        "preco": 108.88
+      }
+    ],
+    "conferidoEm": "2026-10-17"
   }
 ]
