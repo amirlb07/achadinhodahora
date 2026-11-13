@@ -57,7 +57,7 @@
         "preco": 64.99
       }
     ],
-    "conferidoEm": "2026-11-12"
+    "conferidoEm": "2026-11-13"
   },
   {
     "id": "robo-aspirador-s40",
@@ -199,9 +199,13 @@
       {
         "data": "2026-11-12",
         "preco": 1968
+      },
+      {
+        "data": "2026-11-13",
+        "preco": 1899
       }
     ],
-    "conferidoEm": "2026-11-12"
+    "conferidoEm": "2026-11-13"
   },
   {
     "id": "cesto-roupa-bambu",
@@ -241,7 +245,7 @@
         "preco": 56.99
       }
     ],
-    "conferidoEm": "2026-11-12"
+    "conferidoEm": "2026-11-13"
   },
   {
     "id": "saco-vacuo-magnow",
@@ -371,9 +375,13 @@
       {
         "data": "2026-11-12",
         "preco": 179.91
+      },
+      {
+        "data": "2026-11-13",
+        "preco": 153.81
       }
     ],
-    "conferidoEm": "2026-11-12"
+    "conferidoEm": "2026-11-13"
   },
   {
     "id": "cortador-legumes-16",
@@ -401,7 +409,7 @@
         "preco": 39.99
       }
     ],
-    "conferidoEm": "2026-11-12"
+    "conferidoEm": "2026-11-13"
   },
   {
     "id": "escorredor-2-andares",
@@ -437,6 +445,6 @@
         "preco": 99
       }
     ],
-    "conferidoEm": "2026-11-12"
+    "conferidoEm": "2026-11-13"
   }
 ]
